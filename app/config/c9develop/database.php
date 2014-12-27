@@ -20,7 +20,7 @@ return array(
 
 	'connections' => array(
 
-		'mysql' => array(
+		'gia' => array(
 			'driver'    => 'mysql',
 			'host'      => 'samuelmg-gia-1143887',
 			'database'  => 'gia',

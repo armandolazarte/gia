@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'gia',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,11 +52,11 @@ return array(
 			'prefix'   => '',
 		),
 
-		'mysql' => array(
+		'gia' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'forge',
-			'username'  => 'forge',
+			'database'  => 'gia',
+			'username'  => 'giausr',
 			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
