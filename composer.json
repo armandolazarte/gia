@@ -1,7 +1,7 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
+	"name": "samuelmg/gia",
+	"description": "Gestor Integral de Administración (GIA)",
+	"keywords": ["administracion", "presupuesto", "contabilidad", "fondos", "laravel"],
 	"license": "MIT",
 	"type": "project",
 	"require": {
