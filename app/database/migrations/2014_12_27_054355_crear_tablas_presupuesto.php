@@ -31,6 +31,13 @@ class CrearTablasPresupuesto extends Migration {
 			$t->timestamps();
 		});
 		
+		Schema::create('proyecto_tipos', function($t)
+		{
+			$t->increments('id');
+			$t->string('proyecto_tipo', 30);
+			$t->integer('cog_tipo_id')->unsigned();
+		});
+		
 		Schema::create('proyectos', function($t)
 		{
 			$t->increments('id');
@@ -39,6 +46,8 @@ class CrearTablasPresupuesto extends Migration {
 			$t->decimal('monto', 15, 3);
 			$t->integer('urg_id')->unsigned();
 			$t->foreign('urg_id')->references('id')->on('urgs');
+			$t->integer('proyecto_tipo_id')->unsigned();
+			$t->foreign('proyecto_tipo_id')->references('id')->on('proyecto_tipos');
 			$t->timestamps();
 		});
 		
