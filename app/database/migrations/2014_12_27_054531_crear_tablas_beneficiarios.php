@@ -12,7 +12,7 @@ class CrearTablasBeneficiarios extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('beneficiarios', function($t)
+		Schema::create('benefs', function($t)
 		{
 			$t->increments('id');
 			$t->string('tipo', 30);
@@ -29,7 +29,7 @@ class CrearTablasBeneficiarios extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('beneficiarios');
+		Schema::drop('benefs');
 	}
 
 }

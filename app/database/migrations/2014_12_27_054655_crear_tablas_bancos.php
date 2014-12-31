@@ -50,8 +50,8 @@ class CrearTablasBancos extends Migration {
 			$t->foreign('cuenta_id')->references('id')->on('cuentas');
 			$t->integer('poliza')->unsigned();
 			$t->date('fecha');
-			$t->integer('beneficiario_id')->unsigned();
-			$t->foreign('beneficiario_id')->references('id')->on('beneficiarios');
+			$t->integer('benef_id')->unsigned();
+			$t->foreign('benef_id')->references('id')->on('benefs');
 			$t->integer('concepto_id')->unsigned();
 			$t->foreign('concepto_id')->references('id')->on('conceptos');
 			$t->string('cmt');

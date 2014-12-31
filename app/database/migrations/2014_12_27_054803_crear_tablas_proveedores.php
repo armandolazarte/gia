@@ -15,8 +15,8 @@ class CrearTablasProveedores extends Migration {
 		Schema::create('proveedores', function($t)
 		{
 			$t->increments('id');
-		    $t->integer('beneficiario_id')->unsigned();
-		    $t->foreign('beneficiario_id')->references('id')->on('beneficiarios');
+		    $t->integer('benef_id')->unsigned();
+		    $t->foreign('benef_id')->references('id')->on('benefs');
 		    $t->string('d_proveedor');
 		    $t->string('rfc', 15);
 		    $t->string('direccion');
