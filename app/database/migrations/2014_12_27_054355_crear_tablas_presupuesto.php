@@ -71,6 +71,7 @@ class CrearTablasPresupuesto extends Migration {
 	{
 		Schema::drop('fondo_proyecto');
 		Schema::drop('proyectos');
+		Schema::drop('proyecto_tipos');
 		Schema::drop('fondos');
 		Schema::drop('urgs');
 	}
