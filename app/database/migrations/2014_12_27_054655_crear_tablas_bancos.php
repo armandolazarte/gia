@@ -57,7 +57,7 @@ class CrearTablasBancos extends Migration {
 			$t->string('cmt');
 			$t->decimal('monto', 15, 3);
 			$t->string('estatus', 30);
-			$t->string('responsable', 20);
+			$t->smallInteger('responsable');
 			$t->date('fecha_cobro');
 			$t->timestamps();
 			$t->softDeletes();

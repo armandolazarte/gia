@@ -23,6 +23,7 @@ class CrearTablaAltas extends Migration {
 			$t->foreign('urg_id')->references('id')->on('urgs');
 			$t->integer('debito')->unsigned();
 			$t->string('estatus', 20);
+			$t->smallInteger('usr_id')->unsigned();
 			$t->timestamps();
 		});
 	}
