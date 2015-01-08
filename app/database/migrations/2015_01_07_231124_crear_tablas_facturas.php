@@ -33,11 +33,11 @@ class CrearTablasFacturas extends Migration {
 			$table->foreign('factura_id')->references('id')->on('facturas');
 			$table->mediumInteger('cantidad')->unsigned();
 			$table->string('concepto');
-			$table->integer('rm_id')->unsigned;
+			$table->integer('rm_id')->unsigned();
 			$table->foreign('rm_id')->references('id')->on('rms');
-			$table->integer('cog_id')->unsigned;
+			$table->integer('cog_id')->unsigned();
 			$table->foreign('cog_id')->references('id')->on('cogs');
-			$table->boolean('alta_patrimonial');
+			$table->boolean('inventariable');
 			$table->decimal('monto', 15, 3);
 		});
 		
