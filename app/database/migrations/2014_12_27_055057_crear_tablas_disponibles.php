@@ -25,7 +25,7 @@ class CrearTablasDisponibles extends Migration {
 			$t->timestamps();
 		});
 		
-		Schema::create('disponibles_proyectos', function($t)
+		Schema::create('disponible_proyecto', function($t)
 		{
 			$t->increments('id');
 			$t->integer('disponible_id')->unsigned();
