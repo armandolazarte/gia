@@ -45,7 +45,7 @@ class CrearTablasDisponibles extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('disponibles_proyectos');
+		Schema::drop('disponible_proyecto');
 		Schema::drop('disponibles');
 	}
 
