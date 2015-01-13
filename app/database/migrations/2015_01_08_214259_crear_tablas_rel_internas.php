@@ -23,7 +23,7 @@ class CrearTablasRelInternas extends Migration {
 			$table->timestamps();
 		});
 		
-		Schema::create('rel_internas_docs', function($table)
+		Schema::create('rel_interna_docs', function($table)
 		{
 			$table->increments('id');
 			$table->integer('rel_interna_id')->unsigned();
@@ -40,7 +40,7 @@ class CrearTablasRelInternas extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('rel_internas_docs');
+		Schema::drop('rel_interna_docs');
 		Schema::drop('rel_internas');
 	}
 
