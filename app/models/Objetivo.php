@@ -13,12 +13,12 @@ class Objetivo extends Eloquent
     //Objetivo __belongs_to_many__ Solicitud
     public function solicitudes()
     {
-        return $this->belongsToMany('Solicitud');
+        return $this->belongsToMany('Solicitud')->withPivot('monto');
     }
     
     //Objetivo __belongs_to_many__ Vales
     public function vales()
     {
-        return $this->belongsToMany('Vale');
+        return $this->belongsToMany('Vale')->withPivot('monto');
     }
 }
