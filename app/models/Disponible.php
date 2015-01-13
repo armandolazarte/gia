@@ -11,6 +11,7 @@ class Disponible extends Eloquent
     //Disponible __belongs_to_many__ Proyectos
     public function proyectos()
     {
-        return $this->belongsToMany('Proyecto');
+        return $this->belongsToMany('Proyecto')
+                    ->withPivot('monto','no_invoice');
     }
 }

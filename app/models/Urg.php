@@ -19,4 +19,16 @@ class Urg extends Eloquent
     {
         return $this->hasMany('Alta');
     }
+    
+    //Urg __has_many__ Solicitud
+    public function solicitudes()
+    {
+        return $this->hasMany('Solicitud');
+    }
+    
+    //Urg __has_many__ Req
+    public function reqs()
+    {
+        return $this->hasMany('Req');
+    }
 }

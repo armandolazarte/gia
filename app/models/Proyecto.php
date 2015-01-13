@@ -8,6 +8,30 @@ class Proyecto extends Eloquent
         return $this->belongsTo('Urg');
     }
     
+    //Proyecto __belongs_to__ ProyectoTipo
+    public function proyectoTipos()
+    {
+        return $this->belongsTo('ProyectoTipo');
+    }
+    
+    //Proyecto __has_many__ Rm
+    public function rms()
+    {
+        return $this->hasMany('Rm');
+    }
+    
+    //Proyecto __has_many__ Solicitud
+    public function solicitudes()
+    {
+        return $this->hasMany('Solicitud');
+    }
+    
+    //Proyecto __has_many__ Vale
+    public function vales()
+    {
+        return $this->hasMany('Vale');
+    }
+    
     //Proyecto __belongs_to_many Fondos
     public function fondos()
     {
@@ -23,6 +47,7 @@ class Proyecto extends Eloquent
     //Proyecto __belongs_to_many Disponibles
     public function disponibles()
     {
-        return $this->belongsToMany('Disponible');
+        return $this->belongsToMany('Disponible')
+                    ->withPivot('monto','no_invoice');
     }
 }

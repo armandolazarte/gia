@@ -2,6 +2,8 @@
 
 class Concepto extends Eloquent
 {
+    public $timestamps = false;
+    
     //Concepto __has_many__ Egresos
     public function egresos()
     {
