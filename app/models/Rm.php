@@ -74,6 +74,12 @@ class Rm extends Eloquent
         return $this->belongsToMany('Vale')->withPivot('monto');
     }
     
+    //RM __belongs_to_many__ Solicitud
+    public function solicitudes()
+    {
+        return $this->belongsToMany('Solicitud')->withPivot('monto');
+    }
+    
     //Rm __belongs_to_many__ Ingreso
     public function ingresos()
     {
