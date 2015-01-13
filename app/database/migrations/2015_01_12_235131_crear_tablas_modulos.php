@@ -12,7 +12,24 @@ class CrearTablasModulos extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('modulos', function($table)
+		{
+			$table->increments('id');
+			$table->string('ruta');
+			$table->string('nombre', 100);
+			$table->string('icono', 50);
+			$table->string('orden', 12);
+			$table->boolean('activo');
+			$table->timestamps();
+		});
+		
+		Schema::create('modulo_role', function($table)
+		{
+			$table->increments('id');
+			$table->integer('modulo_id')->unsigned();
+			$table->integer('role_id')->unsigned();
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -22,7 +39,8 @@ class CrearTablasModulos extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('modulo_role');
+		Schema::drop('modulos');
 	}
 
 }
