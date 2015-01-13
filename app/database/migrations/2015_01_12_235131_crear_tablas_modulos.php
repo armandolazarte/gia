@@ -28,7 +28,6 @@ class CrearTablasModulos extends Migration {
 			$table->increments('id');
 			$table->integer('modulo_id')->unsigned();
 			$table->integer('role_id')->unsigned();
-			$table->timestamps();
 		});
 	}
 
