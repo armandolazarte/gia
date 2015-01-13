@@ -96,6 +96,14 @@ class CrearTablasAdquisiciones extends Migration {
 			$table->softDeletes();
 		});
 		
+		Schema::create('cotizacion_cuadro', function($table)
+		{
+			$table->increments('id');
+			$table->integer('cuadro_id')->unsigned();
+			$table->integer('cotizacion_id')->unsigned();
+			$table->string('criterio');
+		});
+		
 		Schema::create('ocs', function($table)
 		{
 			$table->increments('id');
@@ -153,6 +161,7 @@ class CrearTablasAdquisiciones extends Migration {
 		Schema::drop('egreso_oc');
 		Schema::drop('ocs_condiciones');
 		Schema::drop('ocs');
+		Schema::drop('cotizacion_cuadro');
 		Schema::drop('cuadros');
 		Schema::drop('articulo_cotizacion');
 		Schema::drop('cotizaciones');
