@@ -68,6 +68,12 @@ class Rm extends Eloquent
         return $this->hasMany('BmsRm');
     }
     
+    //RM __belongs_to_many__ Vale
+    public function vales()
+    {
+        return $this->belongsToMany('Vale')->withPivot('monto');
+    }
+    
     //Rm __belongs_to_many__ Ingreso
     public function ingresos()
     {
