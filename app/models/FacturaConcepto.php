@@ -2,6 +2,8 @@
 
 class FacturaConcepto extends Eloquent
 {
+    public $timestamps = false;
+    
     //FacturaConcepto __belongs_to__ Factura
     public function factura()
     {
