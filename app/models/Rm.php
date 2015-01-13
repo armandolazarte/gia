@@ -56,10 +56,10 @@ class Rm extends Eloquent
         return $this->hasMany('Honorario');
     }
     
-    //Rm __has_many__ FactConcepto
-    public function factConceptos()
+    //Rm __has_many__ FacturaConcepto
+    public function facturaConceptos()
     {
-        return $this->hasMany('FactConcepto');
+        return $this->hasMany('FacturaConcepto');
     }
     
     //Rm __has_many__ BmsRm

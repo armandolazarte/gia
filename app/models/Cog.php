@@ -14,9 +14,9 @@ class Cog extends Eloquent
         return $this->hasMany('Rm');
     }
     
-    //Cog __has_many__ FactConcepto
-    public function factConceptos()
+    //Cog __has_many__ FacturaConcepto
+    public function facturaConceptos()
     {
-        return $this->hasMany('FactConcepto');
+        return $this->hasMany('FacturaConcepto');
     }
 }

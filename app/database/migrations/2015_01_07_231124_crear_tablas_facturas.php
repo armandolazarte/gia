@@ -26,7 +26,7 @@ class CrearTablasFacturas extends Migration {
 			$table->timestamps();
 		});
 		
-		Schema::create('fact_conceptos', function($table)
+		Schema::create('factura_conceptos', function($table)
 		{
 			$table->increments('id');
 			$table->integer('factura_id')->unsigned();
@@ -63,7 +63,7 @@ class CrearTablasFacturas extends Migration {
 	public function down()
 	{
 		Schema::drop('fact_tcs');
-		Schema::drop('fact_conceptos');
+		Schema::drop('factura_conceptos');
 		Schema::drop('facturas');
 	}
 
