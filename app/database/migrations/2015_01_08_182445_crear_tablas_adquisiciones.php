@@ -131,7 +131,6 @@ class CrearTablasAdquisiciones extends Migration {
 			$table->increments('id');
 			$table->integer('oc_id')->unsigned();
 			$table->integer('egreso_id')->unsigned();
-			$table->timestamps();
 		});
 		
 		Schema::create('unidades', function($table)

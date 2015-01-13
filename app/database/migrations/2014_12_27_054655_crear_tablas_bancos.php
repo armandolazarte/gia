@@ -33,7 +33,6 @@ class CrearTablasBancos extends Migration {
 			$t->foreign('cuenta_id')->references('id')->on('cuentas');
 			$t->integer('proyecto_id')->unsigned();
 			$t->foreign('proyecto_id')->references('id')->on('proyectos');
-			$t->timestamps();
 		});
 		
 		Schema::create('conceptos', function($t)

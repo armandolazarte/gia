@@ -34,7 +34,6 @@ class CrearTablasDisponibles extends Migration {
 			$t->foreign('proyecto_id')->references('id')->on('proyectos');
 			$t->decimal('monto', 15, 3);
 			$t->integer('no_invoice')->unsigned();
-			$t->timestamps();
 		});
 	}
 

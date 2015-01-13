@@ -58,7 +58,6 @@ class CrearTablasPresupuesto extends Migration {
 			$t->foreign('fondo_id')->references('id')->on('fondos');
 			$t->integer('proyecto_id')->unsigned();
 			$t->foreign('proyecto_id')->references('id')->on('proyectos');
-			$t->timestamps();
 		});
 	}
 
