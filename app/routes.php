@@ -16,6 +16,14 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+Route::group(array('prefix' => 'prueba'), function()
+{
+	Route::get('/menu', function()
+	{
+		return View::make('prueba.menu');
+	});
+});
+
 Route::group(array('prefix' => 'adminRoot'), function()
 {
 	Route::get('/modulos', 'ModuloController@index');
