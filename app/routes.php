@@ -16,6 +16,14 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+Route::group(array('prefix' => 'adminRoot'), function()
+{
+	Route::get('/modulos', 'ModuloController@index');
+	Route::get('/modulos/nuevo', 'ModuloController@create');
+	Route::post('/modulos', 'ModuloController@store');
+	Route::get('/modulos/{modulo}', 'ModuloController@show');//Por implementar
+});
+
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
