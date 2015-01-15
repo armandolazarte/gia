@@ -24,6 +24,11 @@ Route::group(array('prefix' => 'prueba'), function()
 	});
 });
 
+Route::group(array('prefix' => 'admin'), function()
+{
+	Route::resource('usuario', 'UsuarioController');
+});
+
 Route::group(array('prefix' => 'adminRoot'), function()
 {
 	Route::get('/modulos', 'ModuloController@index');
