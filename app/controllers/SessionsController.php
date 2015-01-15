@@ -12,10 +12,10 @@ class SessionsController extends BaseController
     
     public function store()
     {
-        $input = Input::only('email', 'password');
+        $input = Input::only('username', 'password');
         
         $attempt = Auth::attempt([
-            'email' => $input['email'],
+            'username' => $input['username'],
             'password' => $input['password']
         ]);
         
