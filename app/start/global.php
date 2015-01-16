@@ -87,3 +87,11 @@ require app_path().'/filters.php';
 */
 
 require app_path().'/composers.php';
+
+/*
+|--------------------------------------------------------------------------
+| Require The Validators
+|--------------------------------------------------------------------------
+*/
+
+require app_path().'/validators.php';
