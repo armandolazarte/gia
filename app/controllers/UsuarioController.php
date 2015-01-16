@@ -22,7 +22,7 @@ class UsuarioController extends \BaseController {
 	public function create()
 	{
 		$roles = Role::all();
-		return View::make('admin.usuarios.nuevo', compact('roles'));
+		return View::make('admin.usuarios.formUsuario', compact('roles'));
 	}
 
 
@@ -41,7 +41,7 @@ class UsuarioController extends \BaseController {
 			'password' => 'required|confirmed',
 			'email' => 'required|email|unique:users',
 			'nombre' => 'required|alpha_spaces',
-			'cargo' => 'alpha',
+			'cargo' => 'alpha_spaces',
 			'prefijo' => 'alpha|max:5',
 			'iniciales' => 'alpha|max:5'
 		);
@@ -59,16 +59,13 @@ class UsuarioController extends \BaseController {
 			$user->save();
 
 			//Asociar con Roles
-			$roles = Input::get('roles');
-			foreach($roles as $role) {
+			$role_user = Input::get('role_user');
+			foreach($role_user as $role) {
 				$user->roles()->attach($role);
 			}
 
 			return Redirect::action('UsuarioController@show', array($user->id));
 		} else {
-
-			//Si no pasa la validación
-			$errors = $validator->messages();
 			return Redirect::action('UsuarioController@create')->withErrors($validator)->withInput();
 		}
 	}
@@ -95,7 +92,12 @@ class UsuarioController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = User::find($id);
+		$roles = Role::all();
+
+		return View::make('admin.usuarios.formUsuario')
+			->with('user', $user)
+			->with('roles', $roles);
 	}
 
 
@@ -107,7 +109,41 @@ class UsuarioController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$data = Input::all();
+
+		$rules = array(
+			'username' => 'required|numeric|min:7|unique:users,username,'.$id,
+			'password' => 'confirmed',
+			'email' => 'required|email|unique:users,email,'.$id,
+			'nombre' => 'required|alpha_spaces',
+			'cargo' => 'alpha_spaces',
+			'prefijo' => 'alpha|max:5',
+			'iniciales' => 'alpha|max:5'
+		);
+		$validator = Validator::make($data, $rules);
+
+		if ($validator->passes()) {
+			$user = User::findOrFail($id);
+			$user->username = Input::get('username');
+			$user->email = Input::get('email');
+			$psw = Input::has('password');
+			if ( !empty($psw) ) {
+				$user->password = Hash::make(Input::get('password'));
+			}
+			$user->nombre = Input::get('nombre');
+			$user->cargo = Input::get('cargo');
+			$user->prefijo = Input::get('prefijo');
+			$user->iniciales = Input::get('iniciales');
+			$user->save();
+
+			//Asociar con Roles
+			$role_user = Input::get('role_user');
+			$user->roles()->sync($role_user);
+
+			return Redirect::action('UsuarioController@show', array($user->id));
+		} else {
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
 	}
 
 

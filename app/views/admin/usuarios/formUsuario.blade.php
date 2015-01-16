@@ -2,7 +2,11 @@
 
 @section('contenido')
 
-    {{ Form::open(array('action' => 'UsuarioController@store')) }}
+    @if(isset($user))
+        {{ Form::model($user, array('route' => array('admin.usuario.update', $user->id), 'method' => 'patch')) }}
+    @else
+        {{ Form::open(array('action' => 'UsuarioController@store')) }}
+    @endif
 
 {{-- @foreach($errors->get('username', '<span>:message</span>') as $message) --}}
     @foreach($errors->get('username') as $message)
@@ -54,8 +58,12 @@
     {{ Form::text('iniciales') }}
 
     @foreach($roles as $role)
-        {{ Form::label('roles[]', $role->role_name) }}
-        {{ Form::checkbox('roles[]', $role->id, false) }}
+        {{ Form::label('role_user[]', $role->role_name) }}
+        @if(isset($user))
+            {{ Form::checkbox('role_user[]', $role->id, $user->roles->contains($role->id)) }}
+        @else
+            {{ Form::checkbox('role_user[]', $role->id, false) }}
+        @endif
     @endforeach
 
     {{ Form::submit('Aceptar') }}
