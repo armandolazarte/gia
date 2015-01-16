@@ -17,6 +17,12 @@
     {{ Form::label('nombre', 'Nombre') }}
     {{ Form::text('nombre') }}
 
+    @foreach($errors->get('email') as $message)
+        {{ $message }}
+    @endforeach
+    {{ Form::label('email', 'Correo Electrónico') }}
+    {{ Form::text('email') }}
+
     @foreach($errors->get('password') as $message)
         {{ $message }}
     @endforeach
@@ -46,6 +52,11 @@
     @endforeach
     {{ Form::label('iniciales', 'Iniciales') }}
     {{ Form::text('iniciales') }}
+
+    @foreach($roles as $role)
+        {{ Form::label('roles[]', $role->role_name) }}
+        {{ Form::checkbox('roles[]', $role->id, false) }}
+    @endforeach
 
     {{ Form::submit('Aceptar') }}
 

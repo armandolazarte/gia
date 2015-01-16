@@ -21,7 +21,8 @@ class UsuarioController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('admin.usuarios.nuevo');
+		$roles = Role::all();
+		return View::make('admin.usuarios.nuevo', compact('roles'));
 	}
 
 
@@ -38,8 +39,8 @@ class UsuarioController extends \BaseController {
 		$rules = array(
 			'username' => 'required|numeric|min:7|unique:users',
 			'password' => 'required|confirmed',
-			'email' => 'required|email',
-			'nombre' => 'required|alpha',
+			'email' => 'required|email|unique:users',
+			'nombre' => 'required|alpha_spaces',
 			'cargo' => 'alpha',
 			'prefijo' => 'alpha|max:5',
 			'iniciales' => 'alpha|max:5'
@@ -47,20 +48,23 @@ class UsuarioController extends \BaseController {
 		$validator = Validator::make($data, $rules);
 
 		if ($validator->passes()) {
-			/*$user = new User;
+			$user = new User;
 			$user->username = Input::get('username');
 			$user->email = Input::get('email');
-			$user->password = Input::get('password');
+			$user->password = Hash::make(Input::get('password'));
 			$user->nombre = Input::get('nombre');
 			$user->cargo = Input::get('cargo');
 			$user->prefijo = Input::get('prefijo');
 			$user->iniciales = Input::get('iniciales');
-			$user->save();*/
+			$user->save();
 
 			//Asociar con Roles
-			//$roles = Input::get('roles');
+			$roles = Input::get('roles');
+			foreach($roles as $role) {
+				$user->roles()->attach($role);
+			}
 
-			return Redirect::action('UsuarioController@show', array('id', $user->id));
+			return Redirect::action('UsuarioController@show', array($user->id));
 		} else {
 
 			//Si no pasa la validación
@@ -79,7 +83,7 @@ class UsuarioController extends \BaseController {
 	public function show($id)
 	{
 		$user = User::find($id);
-		View::make('admin.usuarios.info', compact('user'));
+		return View::make('admin.usuarios.info', compact('user'));
 	}
 
 
