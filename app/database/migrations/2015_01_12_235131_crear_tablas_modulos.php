@@ -20,7 +20,6 @@ class CrearTablasModulos extends Migration {
 			$table->string('icono', 50);
 			$table->string('orden', 12);
 			$table->boolean('activo');
-			$table->timestamps();
 		});
 		
 		Schema::create('modulo_role', function($table)

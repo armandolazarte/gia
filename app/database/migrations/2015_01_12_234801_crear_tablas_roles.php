@@ -16,7 +16,6 @@ class CrearTablasRoles extends Migration {
 		{
 			$table->increments('id');
 			$table->string('role_name', 30);
-			$table->timestamps();
 		});
 		
 		Schema::create('role_user', function($table)
@@ -24,7 +23,6 @@ class CrearTablasRoles extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
 			$table->integer('role_id')->unsigned();
-			$table->timestamps();
 		});
 	}
 

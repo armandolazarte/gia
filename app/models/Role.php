@@ -2,15 +2,17 @@
 
 class Role extends Eloquent
 {
-    //Role __belongs_to_many__ Users
+    public $timestamps = false;
+
+    //Role __belongs_to_many__ User
     public function users()
     {
-        return $this->belongsToMany('User')->withTimestamps();
+        return $this->belongsToMany('User');
     }
     
-    //Role __belongs_to_many__ Modulos
+    //Role __belongs_to_many__ Modulo
     public function modulos()
     {
-        return $this->belongsToMany('Modulos');
+        return $this->belongsToMany('Modulo');
     }
 }
