@@ -28,7 +28,7 @@ $env = $app->detectEnvironment(array(
 
 	'local' => array('homestead'),
 	'c9develop' => array('samuelmg-gia-1143887'),
-	'develop' => array('Sistemas'),
+	'develop' => array('Sistemas','GWSSD'),
 
 ));
 
