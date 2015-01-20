@@ -16,6 +16,10 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+Route::get('login', 'SessionsController@create');
+Route::get('logout', 'SessionsController@destroy');
+Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
+
 Route::group(array('prefix' => 'prueba'), function()
 {
 	Route::get('/menu', function()
@@ -27,6 +31,7 @@ Route::group(array('prefix' => 'prueba'), function()
 Route::group(array('prefix' => 'admin'), function()
 {
 	Route::resource('usuario', 'UsuarioController');
+	Route::get('/acciones', 'AccionesController@index');
 });
 
 Route::group(array('prefix' => 'adminRoot'), function()
@@ -36,7 +41,3 @@ Route::group(array('prefix' => 'adminRoot'), function()
 	Route::post('/modulos', 'ModuloController@store');
 	Route::get('/modulos/{modulo}', 'ModuloController@show');//Por implementar
 });
-
-Route::get('login', 'SessionsController@create');
-Route::get('logout', 'SessionsController@destroy');
-Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
