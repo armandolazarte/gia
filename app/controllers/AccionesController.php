@@ -6,7 +6,9 @@ class AccionesController extends BaseController
     {
         $this->importar_rutas();
 
-        $acciones = Accion::all();
+        $acciones = Accion::with('modulos')->get();
+        //dd($acciones[10]->modulos[0]->nombre);
+
         return View::make('admin.acciones.index')->with('acciones', $acciones);
     }
 
@@ -29,5 +31,32 @@ class AccionesController extends BaseController
                 $arr_rutas[] = $ruta;
             }
         }
+    }
+
+    public function editar($id)
+    {
+        $accion = Accion::find($id);
+        $modulos = Modulo::all();
+
+        return View::make('admin.acciones.editar')
+            ->with('accion', $accion)
+            ->with('modulos', $modulos);
+    }
+
+    public function actualizar($id)
+    {
+        $accion = Accion::findOrFail($id);
+        $accion->nombre = Input::get('nombre');
+        $accion->icono = Input::get('icono');
+        $accion->orden = Input::get('orden');
+        $accion->activo = Input::get('activo');
+        $accion->save();
+
+        if ( count(Input::get('accion_modulo')) > 0) {
+            $accion_modulo = Input::get('accion_modulo');
+            $accion->modulos()->sync($accion_modulo);
+        }
+
+        return Redirect::action('AccionesController@index');
     }
 }

@@ -32,6 +32,8 @@ Route::group(array('prefix' => 'admin'), function()
 {
 	Route::resource('usuario', 'UsuarioController');
 	Route::get('/acciones', 'AccionesController@index');
+	Route::get('/acciones/editar/{id}', 'AccionesController@editar');
+	Route::post('/acciones/actualizar/{id}', 'AccionesController@actualizar');
 });
 
 Route::group(array('prefix' => 'adminRoot'), function()

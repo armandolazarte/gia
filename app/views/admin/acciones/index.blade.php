@@ -8,15 +8,21 @@
                 <th>Icono</th>
                 <th>Orden</th>
                 <th>Activo</th>
+                <th>Modulos</th>
             </tr></thead>
             @foreach($acciones as $accion)
                 <tr>
-                    <td>{{ $accion->id }}</td>
+                    <td><a href="{{ action('AccionesController@editar', $accion->id) }}">{{ $accion->id }}</a></td>
                     <td>{{ $accion->ruta }}</td>
                     <td>{{ $accion->nombre }}</td>
                     <td>{{ $accion->icono }}</td>
                     <td>{{ $accion->orden }}</td>
                     <td>{{ $accion->activo }}</td>
+                    <td>
+                        @foreach($accion->modulos as $modulo)
+                            {{ $modulo->nombre }}<br />
+                        @endforeach
+                    </td>
                 </tr>
             @endforeach
         </table>
