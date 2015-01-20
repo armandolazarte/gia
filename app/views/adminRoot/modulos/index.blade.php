@@ -13,15 +13,21 @@
             <th>Icono</th>
             <th>Orden</th>
             <th>Activo</th>
+            <th>Roles</th>
         </tr></thead>
         @foreach($modulos as $modulo)
         <tr>
-            <td>{{ $modulo->id }}</td>
+            <td><a href="{{ action('ModuloController@edit', $modulo->id) }}">{{ $modulo->id }}</a></td>
             <td>{{ $modulo->ruta }}</td>
             <td>{{ $modulo->nombre }}</td>
             <td>{{ $modulo->icono }}</td>
             <td>{{ $modulo->orden }}</td>
             <td>{{ $modulo->activo }}</td>
+            <td>
+                @foreach($modulo->roles as $role)
+                    {{ $role->role_name }}<br />
+                @endforeach
+            </td>
         </tr>
         @endforeach
     </table>

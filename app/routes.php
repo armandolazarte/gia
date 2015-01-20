@@ -41,5 +41,6 @@ Route::group(array('prefix' => 'adminRoot'), function()
 	Route::get('/modulos', 'ModuloController@index');
 	Route::get('/modulos/nuevo', 'ModuloController@create');
 	Route::post('/modulos', 'ModuloController@store');
-	Route::get('/modulos/{modulo}', 'ModuloController@show');//Por implementar
+	Route::get('/modulos/editar/{modulo}', 'ModuloController@edit');
+	Route::post('/modulos/{modulo}', 'ModuloController@update');
 });
