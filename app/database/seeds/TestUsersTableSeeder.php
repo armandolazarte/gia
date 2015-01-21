@@ -6,12 +6,12 @@ class TestUsersTableSeeder extends Seeder {
 	{
 	    $psw = Hash::make('1234');
 	    User::create(array(
-	        'username' => 'usuario',
+	        'username' => '111',
 	        'email' => 'usuario@prueba.com',
 	        'password' => $psw,
 	        'nombre' => 'Usuario de Prueba',
 	        'cargo' => 'Cargo Prueba',
-	        'prefijo' => 'Ing.',
+	        'prefijo' => 'Ing',
 	        'iniciales' => '',
 	        'remember_token' => ''
 	        ));
