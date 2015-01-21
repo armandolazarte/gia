@@ -88,3 +88,15 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*
+|--------------------------------------------------------------------------
+| Role Filter
+|--------------------------------------------------------------------------
+|
+| Verifica que el usuario tenga el rol necesario para acceder a la ruta
+|
+*/
+
+Route::filter('role', '\Gia\Filters\RoleFilter');
+

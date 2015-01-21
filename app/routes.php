@@ -26,6 +26,11 @@ Route::group(array('prefix' => 'prueba'), function()
 	{
 		return View::make('prueba.menu');
 	});
+
+	Route::get('/filtro', array('before' => 'auth|role', function()
+	{
+		return ('Rol valido');
+	}));
 });
 
 Route::group(array('prefix' => 'admin'), function()
