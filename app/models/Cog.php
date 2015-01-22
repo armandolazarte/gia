@@ -2,8 +2,10 @@
 
 class Cog extends Eloquent
 {
+    public $timestamps = false;
+
     //Cog __belongs_to__ ProyectoTipo
-    public function proyectoTipo()
+    public function tipoProyectos()
     {
         return $this->belongsTo('ProyectoTipo');
     }

@@ -1,14 +1,16 @@
 <?php
 
-class ProyectoTipo extends Eloquent
+class TipoProyecto extends Eloquent
 {
-    //ProyectoTipo __has_many__ Proyecto
+    public $timestamps = false;
+
+    //TipoProyecto __has_many__ Proyecto
     public function proyectos()
     {
         return $this->hasMany('Proyecto');
     }
     
-    //ProyectoTipo __has_many Cog
+    //TipoProyecto __has_many__ Cog
     public function cog()
     {
         return $this->hasMany('Cog');

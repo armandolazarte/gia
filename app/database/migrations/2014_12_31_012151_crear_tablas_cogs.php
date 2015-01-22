@@ -15,8 +15,8 @@ class CrearTablasCogs extends Migration {
 		Schema::create('cogs', function($table)
 		{
 			$table->increments('id');
-			$table->integer('proyecto_tipo_id')->unsigned();
-			$table->foreign('proyecto_tipo_id')->references('id')->on('proyecto_tipos');
+			$table->integer('tipo_proyecto_id')->unsigned();
+			$table->foreign('tipo_proyecto_id')->references('id')->on('tipo_proyectos');
 			$table->string('cog');
 			$table->string('d_cog');
 		});
