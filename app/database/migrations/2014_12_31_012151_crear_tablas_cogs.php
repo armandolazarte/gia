@@ -12,21 +12,13 @@ class CrearTablasCogs extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('cog_tipos', function($t)
+		Schema::create('cogs', function($table)
 		{
-			$t->increments('id');
-			$t->string('cog_tipo', 30);
-			$t->timestamps();
-		});
-		
-		Schema::create('cogs', function($t)
-		{
-			$t->increments('id');
-			$t->string('cog');
-			$t->string('d_cog');
-			$t->integer('cog_tipo_id')->unsigned();
-			$t->foreign('cog_tipo_id')->references('id')->on('cog_tipos');
-			$t->timestamps();
+			$table->increments('id');
+			$table->integer('proyecto_tipo_id')->unsigned();
+			$table->foreign('proyecto_tipo_id')->references('id')->on('proyecto_tipos');
+			$table->string('cog');
+			$table->string('d_cog');
 		});
 	}
 
@@ -38,7 +30,6 @@ class CrearTablasCogs extends Migration {
 	public function down()
 	{
 		Schema::drop('cogs');
-		Schema::drop('cog_tipos');
 	}
 
 }

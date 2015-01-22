@@ -8,9 +8,9 @@ class ProyectoTipo extends Eloquent
         return $this->hasMany('Proyecto');
     }
     
-    //ProyectoTipo __belongs_to__ CogTipo
-    public function cogTipo()
+    //ProyectoTipo __has_many Cog
+    public function cog()
     {
-        return $this->belongsTo('CogTipo');
+        return $this->hasMany('Cog');
     }
 }

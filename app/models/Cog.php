@@ -2,10 +2,10 @@
 
 class Cog extends Eloquent
 {
-    //Cog __belongs_to__ CogTipo
-    public function cogTipo()
+    //Cog __belongs_to__ ProyectoTipo
+    public function proyectoTipo()
     {
-        return $this->belongsTo('Urg');
+        return $this->belongsTo('ProyectoTipo');
     }
     
     //Cog __has_many__ Rm
