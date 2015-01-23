@@ -39,6 +39,12 @@ Route::group(array('prefix' => 'admin'), function()
 	Route::get('/acciones', 'AccionesController@index');
 	Route::get('/acciones/editar/{id}', 'AccionesController@editar');
 	Route::post('/acciones/actualizar/{id}', 'AccionesController@actualizar');
+
+	Route::get('/tiposProyectos/', 'TiposProyectosController@index');
+	Route::get('/tiposProyectos/nuevo', 'TiposProyectosController@create');
+	Route::post('/tiposProyectos/{tipoProyecto}', 'TiposProyectosController@store');
+	Route::get('/tiposProyectos/editar/{tipoProyecto}', 'TiposProyectosController@edit');
+	Route::post('/tiposProyectos/actualizar/{tipoProyecto}', 'TiposProyectosController@update');
 });
 
 Route::group(array('prefix' => 'adminRoot'), function()
