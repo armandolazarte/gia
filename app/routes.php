@@ -22,6 +22,10 @@ Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store',
 
 Route::group(array('prefix' => 'prueba'), function()
 {
+	Route::get('/files', 'FilesController@index');
+	Route::get('/upload', 'FilesController@getUpload');
+	Route::post('/upload', 'FilesController@postUpload');
+
 	Route::get('/menu', function()
 	{
 		return View::make('prueba.menu');
