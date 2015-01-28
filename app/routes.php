@@ -59,3 +59,11 @@ Route::group(array('prefix' => 'adminRoot'), function()
 	Route::get('/modulos/editar/{modulo}', 'ModuloController@edit');
 	Route::post('/modulos/{modulo}', 'ModuloController@update');
 });
+
+Route::get('/proyectos', 'ProyectosController@index');
+
+Route::get('/proyectos/importar', 'ImportarProyectoController@index');
+Route::get('/proyectos/upload', 'ImportarProyectoController@postUpload');
+Route::post('/proyectos/convertir', 'ImportarProyectoController@convertir');
+Route::get('/proyectos/vista-previa', 'ImportarProyectoController@show');
+Route::post('/proyectos/importar/', 'ImportarProyectoController@store');
