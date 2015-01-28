@@ -8,10 +8,10 @@ class Proyecto extends Eloquent
         return $this->belongsTo('Urg');
     }
     
-    //Proyecto __belongs_to__ ProyectoTipo
-    public function proyectoTipos()
+    //Proyecto __belongs_to__ TipoProyecto
+    public function tipoProyecto()
     {
-        return $this->belongsTo('ProyectoTipo');
+        return $this->belongsTo('TipoProyecto');
     }
     
     //Proyecto __has_many__ Rm
