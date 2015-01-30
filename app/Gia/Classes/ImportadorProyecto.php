@@ -16,7 +16,7 @@ class ImportadorProyecto
     var $text;
     var $proy;
     var $fondo;
-    var $nombre;
+    var $d_proyecto;
     var $urg;
     var $d_urg;
     var $monto_proy;
@@ -83,7 +83,7 @@ class ImportadorProyecto
         $t_dproy = strstr($this->text, "Nombre del Proyecto: ");
         $posision_ures = strpos($t_dproy, "URG:");
         $t_dproy = substr($t_dproy, 21, $posision_ures-22 );
-        $this->nombre = utf8_encode($t_dproy);
+        $this->d_proyecto = utf8_encode($t_dproy);
     }
 
     private function extraerUrg()
