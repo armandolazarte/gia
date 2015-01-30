@@ -16,6 +16,7 @@ class CrearTablasBancos extends Migration {
 		{
 			$t->increments('id');
 			$t->smallInteger('cuenta')->unsigned()->unique();
+			$t->string('d_cuenta');
 			$t->string('no_cuenta');
 			$t->string('banco');
 			$t->string('tipo', 50);

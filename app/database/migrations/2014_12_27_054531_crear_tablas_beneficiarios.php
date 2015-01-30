@@ -15,6 +15,7 @@ class CrearTablasBeneficiarios extends Migration {
 		Schema::create('benefs', function($t)
 		{
 			$t->increments('id');
+			$t->string('benef');
 			$t->string('tipo', 30);
 			$t->string('tel', 100);
 			$t->string('correo', 100);

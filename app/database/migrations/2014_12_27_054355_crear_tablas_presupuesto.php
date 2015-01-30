@@ -41,7 +41,7 @@ class CrearTablasPresupuesto extends Migration {
 		{
 			$t->increments('id');
 			$t->string('proyecto', 100)->unique();
-			$t->string('nombre');
+			$t->string('d_proyecto');
 			$t->decimal('monto', 15, 3);
 			$t->integer('urg_id')->unsigned();
 			$t->foreign('urg_id')->references('id')->on('urgs');

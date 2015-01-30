@@ -17,7 +17,7 @@ class CrearTablasProveedores extends Migration {
 			$t->increments('id');
 		    $t->integer('benef_id')->unsigned();
 		    $t->foreign('benef_id')->references('id')->on('benefs');
-		    $t->string('d_proveedor');
+		    $t->string('nombre_comercial');
 		    $t->string('rfc', 15);
 		    $t->string('direccion');
 		    $t->string('ciudad', 100);
