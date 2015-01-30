@@ -58,6 +58,10 @@ Route::group(array('prefix' => 'adminRoot'), function()
 	Route::post('/modulos', 'ModuloController@store');
 	Route::get('/modulos/editar/{modulo}', 'ModuloController@edit');
 	Route::post('/modulos/{modulo}', 'ModuloController@update');
+
+	//Importación de catálogos
+	Route::get('/importar-catalogos', 'ImportaCatalogosController@index');
+	Route::post('/importar-catalogos/{catalogo}', 'ImportaCatalogosController@importar');
 });
 
 Route::get('/proyectos', 'ProyectosController@index');
