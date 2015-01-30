@@ -42,6 +42,17 @@ return array(
 			'prefix'    => '',
 		),
 
+		'sigi_benef' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'sigi_benef',
+			'username'  => 'gama',
+			'password'  => '',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
+
 	),
 
 );
