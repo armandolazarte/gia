@@ -6,8 +6,10 @@ class ImportaCatalogosController extends BaseController
         return View::make('adminRoot.formImportaCatalogos');
     }
 
-    public function importar($catalogo){
-        $importador = new \Gia\Classes\ImportadorCatalogos($db_orgien);
+    public function importar(){
+        $db_origen = Input::get('db_origen');
+        $catalogo = Input::get('catalogo');
+        $importador = new \Gia\Classes\ImportadorCatalogos($db_origen);
 
         if ($catalogo == "URG"){
             $importador->importarUrgs();
@@ -28,6 +30,6 @@ class ImportaCatalogosController extends BaseController
             $importador->importarCog();
         }
 
-        \Redirect::action('ImportaCatalogosConroller@index');
+        return \Redirect::action('ImportaCatalogosController@index');
     }
 }

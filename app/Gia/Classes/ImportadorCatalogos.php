@@ -11,10 +11,10 @@ namespace Gia\Classes;
 
 class ImportadorCatalogos
 {
-    public $db_origen;
+    var $db_origen;
 
     public function __construct($db_origen){
-        $this->db_origen;
+        $this->db_origen = $db_origen;
     }
 
     //URG
@@ -77,14 +77,14 @@ class ImportadorCatalogos
         if ( count($proyectos_externos) > 0 ) {
             foreach($proyectos_externos as $proyecto_nuevo)
             {
-                $urg = \Urg::whereUrg($proyecto_nuevo->ures)->get('id');
+                $urg = \Urg::whereUrg($proyecto_nuevo->ures)->get(array('id'));
 
                 $proyecto = new \Proyecto();
                 $proyecto->proyecto = $proyecto_nuevo->proy;
-                $proyecto->nombre = $proyecto_nuevo->d_proy;
+                $proyecto->d_proyecto = $proyecto_nuevo->d_proy;
                 $proyecto->monto = $proyecto_nuevo->monto;
                 $proyecto->urg_id = $urg[0]->id;
-                $proyecto->tipo_proyecto = 1;
+                $proyecto->tipo_proyecto_id = 1;
                 $proyecto->save();
             }
         }
@@ -97,7 +97,7 @@ class ImportadorCatalogos
                 ->whereNotIn ('proy', $proyectos_importados)
                 ->get();
         } else {
-            $proyectos_externos = DB::connection($this->db_origen)->table('tbl_proyectos')
+            $proyectos_externos = \DB::connection($this->db_origen)->table('tbl_proyectos')
                 ->get();
         }
         return $proyectos_externos;
@@ -109,7 +109,8 @@ class ImportadorCatalogos
         if ( count($cuentas_externas) > 0 ) {
             foreach($cuentas_externas as $cuenta_nueva)
             {
-                $urg = \Urg::whereUrg($cuenta_nueva->ures)->get('id');
+                $urg = \Urg::whereUrg($cuenta_nueva->ures)->get(array('id'));
+                !empty($cuenta_nueva->set_default) ? $activa = 1 : $activa = 0;
 
                 $cuenta = new \Cuenta();
                 $cuenta->cuenta = $cuenta_nueva->cta_b;
@@ -117,6 +118,7 @@ class ImportadorCatalogos
                 $cuenta->no_cuenta = $cuenta_nueva->no_cuenta;
                 $cuenta->banco = $cuenta_nueva->banco;
                 $cuenta->tipo = $cuenta_nueva->tipo;
+                $cuenta->activa = $activa;
                 $cuenta->urg_id = $urg[0]->id;
                 $cuenta->save();
             }
@@ -129,7 +131,7 @@ class ImportadorCatalogos
                 ->whereNotIn ('cta_b', $cuentas_importadas)
                 ->get();
         } else {
-            $cuentas_externas = DB::connection($this->db_origen)->table('tbl_cta_b')
+            $cuentas_externas = \DB::connection($this->db_origen)->table('tbl_cta_b')
                 ->get();
         }
         return $cuentas_externas;
@@ -154,7 +156,7 @@ class ImportadorCatalogos
                     ->get();
                 if ( count($prov_externo) > 0 ) {
                     $proveedor = new \Proveedor();
-                    $proveedor->beenf_id = $benef->id;
+                    $proveedor->benef_id = $benef->id;
                     $proveedor->rfc = $prov_externo[0]->RFC;
                     $proveedor->direccion = $prov_externo[0]->direccion;
                     $proveedor->ciudad = $prov_externo[0]->ciudad;
@@ -175,7 +177,7 @@ class ImportadorCatalogos
                 ->whereNotIn ('benef', $benefs_importados)
                 ->get();
         } else {
-            $benefs_externos = DB::connection($this->db_origen)->table('tbl_benef')
+            $benefs_externos = \DB::connection($this->db_origen)->table('tbl_benef')
                 ->get();
         }
         return $benefs_externos;
@@ -187,7 +189,7 @@ class ImportadorCatalogos
         if ( count($cogs_externos) > 0 ) {
             foreach($cogs_externos as $cog_nuevo)
             {
-                $cog = new Cog();
+                $cog = new \Cog();
                 $cog->tipo_proyecto_id = 1;
                 $cog->cog = $cog_nuevo->cta;
                 $cog->d_cog = $cog_nuevo->d_cta;
@@ -203,7 +205,7 @@ class ImportadorCatalogos
                 ->whereNotIn ('cta', $cogs_importados)
                 ->get();
         } else {
-            $cogs_externos = DB::connection($this->db_origen)->table('tbl_cuentas')
+            $cogs_externos = \DB::connection($this->db_origen)->table('tbl_cuentas')
                 ->get();
         }
         return $cogs_externos;

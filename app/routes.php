@@ -61,7 +61,7 @@ Route::group(array('prefix' => 'adminRoot'), function()
 
 	//Importación de catálogos
 	Route::get('/importar-catalogos', 'ImportaCatalogosController@index');
-	Route::post('/importar-catalogos/{catalogo}', 'ImportaCatalogosController@importar');
+	Route::post('/importar', 'ImportaCatalogosController@importar');
 });
 
 Route::get('/proyectos', 'ProyectosController@index');
