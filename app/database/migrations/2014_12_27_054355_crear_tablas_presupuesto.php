@@ -47,8 +47,9 @@ class CrearTablasPresupuesto extends Migration {
 			$t->foreign('urg_id')->references('id')->on('urgs');
 			$t->integer('tipo_proyecto_id')->unsigned();
 			$t->foreign('tipo_proyecto_id')->references('id')->on('tipo_proyectos');
-			$t->date('fecha_inicio');
-			$t->date('fecha_fin');
+			$t->smallInteger('aaaa')->unsigned();
+			$t->date('inicio');
+			$t->date('fin');
 			$t->timestamps();
 		});
 		
