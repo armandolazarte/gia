@@ -19,4 +19,10 @@ class Fondo extends Eloquent
     {
         return $this->hasMany('SolDeposito');
     }
+
+    //Fondo __morph_many__ Acceso
+    public function accesos()
+    {
+        return $this->morphMany('Acceso', 'acceso');
+    }
 }

@@ -15,4 +15,10 @@ class TipoProyecto extends Eloquent
     {
         return $this->hasMany('Cog');
     }
+
+    //TipoProyecto __morph_many__ Acceso
+    public function accesos()
+    {
+        return $this->morphMany('Acceso', 'acceso');
+    }
 }

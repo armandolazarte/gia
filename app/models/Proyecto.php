@@ -56,4 +56,10 @@ class Proyecto extends Eloquent
         return $this->belongsToMany('Disponible')
                     ->withPivot('monto','no_invoice');
     }
+
+    //Proyecto __morph_many__ Acceso
+    public function accesos()
+    {
+        return $this->morphMany('Acceso', 'acceso');
+    }
 }
