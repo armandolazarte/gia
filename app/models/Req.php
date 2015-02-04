@@ -9,6 +9,12 @@ class Req extends Eloquent
     {
         return $this->belongsTo('Urg');
     }
+
+    //Req __belongs_to__ Proyecto
+    public function proyecto()
+    {
+        return $this->belongsTo('Proyecto');
+    }
     
     //Req __has_many__ Articulo
     public function articulos()

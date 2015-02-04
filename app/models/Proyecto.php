@@ -19,7 +19,13 @@ class Proyecto extends Eloquent
     {
         return $this->hasMany('Rm');
     }
-    
+
+    //Proyecto __has_many__ Req
+    public function reqs()
+    {
+        return $this->hasMany('Req');
+    }
+
     //Proyecto __has_many__ Solicitud
     public function solicitudes()
     {
