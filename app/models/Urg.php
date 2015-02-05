@@ -32,6 +32,12 @@ class Urg extends Eloquent
         return $this->hasMany('Req');
     }
 
+    //Urg __belongs_to_many__ Cargo
+    public function cargos()
+    {
+        return $this->belongsToMany('Cargo');
+    }
+
     //Urg __morph_many__ Acceso
     public function accesos()
     {
