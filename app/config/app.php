@@ -121,7 +121,8 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Gia\Providers\UtilityServiceProvider'
+		'Gia\Providers\UtilityServiceProvider',
+		'Gia\Providers\AccesoServiceProvider',
 	),
 
 	/*
@@ -190,6 +191,7 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
 
 		'Utility'			=> 'Gia\Facades\Utility',
+		'Acceso'			=> 'Gia\Facades\Acceso',
 
 	),
 
