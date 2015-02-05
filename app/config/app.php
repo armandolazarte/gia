@@ -123,6 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Gia\Providers\UtilityServiceProvider',
 		'Gia\Providers\AccesoServiceProvider',
+		'Gia\Providers\ConsecutivoServiceProvider',
 	),
 
 	/*
@@ -192,7 +193,7 @@ return array(
 
 		'Utility'			=> 'Gia\Facades\Utility',
 		'Acceso'			=> 'Gia\Facades\Acceso',
-
+		'Consecutivo'		=> 'Gia\Facades\Consecutivo',
 	),
 
 );
