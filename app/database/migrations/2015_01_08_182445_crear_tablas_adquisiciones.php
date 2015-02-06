@@ -49,7 +49,6 @@ class CrearTablasAdquisiciones extends Migration {
 			$table->string('unidad', 20);
 			$table->boolean('inventariable');
 			$table->integer('rm_id')->unsigned();
-			$table->foreign('rm_id')->references('id')->on('rms');
 			$table->timestamps();
 			$table->softDeletes();
 		});
