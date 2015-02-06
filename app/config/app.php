@@ -122,7 +122,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Gia\Providers\UtilityServiceProvider',
-		'Gia\Providers\AccesoServiceProvider',
+		'Gia\Providers\FiltroAccesoServiceProvider',
 		'Gia\Providers\ConsecutivoServiceProvider',
 	),
 
@@ -192,7 +192,7 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
 
 		'Utility'			=> 'Gia\Facades\Utility',
-		'Acceso'			=> 'Gia\Facades\Acceso',
+		'FiltroAcceso'		=> 'Gia\Facades\FiltroAcceso',
 		'Consecutivo'		=> 'Gia\Facades\Consecutivo',
 	),
 
