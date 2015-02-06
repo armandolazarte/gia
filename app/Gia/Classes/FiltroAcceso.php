@@ -3,7 +3,7 @@
 namespace Gia\Classes;
 
 
-class Acceso
+class FiltroAcceso
 {
     var $proyectos;
     var $user_id;
@@ -11,6 +11,7 @@ class Acceso
     public function __construct()
     {
         $user = \Auth::user();
+        //dd($user->id);
         isset($user) ? $this->user_id = $user->id : $this->user_id = 0;
     }
 

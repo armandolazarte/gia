@@ -4,7 +4,7 @@ namespace Gia\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class AccesoServiceProvider extends ServiceProvider {
+class FiltroAccesoServiceProvider extends ServiceProvider {
 
     /**
      * Register the service provider.
@@ -13,6 +13,6 @@ class AccesoServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app->bind('acceso', 'Gia\Classes\Acceso');
+        $this->app->bind('filtro_acceso', 'Gia\Classes\FiltroAcceso');
     }
 }
