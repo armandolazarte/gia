@@ -71,3 +71,18 @@ Route::get('/proyectos/upload', 'ImportarProyectoController@postUpload');
 Route::post('/proyectos/convertir', 'ImportarProyectoController@convertir');
 Route::get('/proyectos/vista-previa', 'ImportarProyectoController@show');
 Route::post('/proyectos/importar/', 'ImportarProyectoController@store');
+
+//** Requisiciones **//
+Route::group(array('prefix' => 'req', 'before' => 'auth'), function()
+{
+	Route::get('/', 'RequisicionController@index');
+	Route::get('/nueva', 'RequisicionController@create');
+	Route::post('/store', 'RequisicionController@store');
+	Route::get('/info/{id}', 'RequisicionController@show');
+
+	Route::get('/articulos/agregar/{req_id}', 'ArticulosController@create');
+	Route::post('/articulos/store', 'ArticulosController@store');
+	Route::get('/articulos/{articulo}/editar', 'ArticulosController@edit');
+	Route::patch('/articulos/{articulo}', 'ArticulosController@update');
+	Route::delete('/articulos/{articulo}', 'ArticulosController@destroy');
+});
